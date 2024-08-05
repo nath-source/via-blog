@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/styles.css">
+    <title>Via Blog | Learn, Engage, Discover</title>
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favic3.png') }}" />
+</head>
+
+<body>
+    <!-- Navigation-->
+
+    <main class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="mb2">
+            <div class="row gx-4 gx-lg-5 justify-content-center">                   
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <h1>Add Blog</h1>
+                    <div class="my-5">
+                    <form id="contactForm" method="POST" enctype="multipart/form-data">
+                        <div class="form-floating">
+                        <input type="text" class="form-control" name="blog_title" required>
+                        <label for="blog_title">Title:</label>
+                        </div>
+
+                        <div class="form-floating">
+                        <input type="text" class="form-control" name="blog_subheading" required>
+                        <label for="blog_subheading">Subheading:</label>
+                        </div>
+
+                        <div class="form-floating">
+                        <textarea name="blog_body" class="form-control" required></textarea>
+                        <label for="blog_body">Blog Content:</label>
+                        <div>
+
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="title2" required>
+                            <label for="title2">Title 2:</label>
+                        </div>    
+
+                        <div class="form-floating">
+                        <textarea name="body_2" class="form-control" required></textarea>
+                        <label for="body_2">Body Content 2:</label>
+                        </div>
+
+
+                        <div class="form-floating">
+                            <input type="text" class="form-control" name="date" required>
+                            <label for="date">Date:</label>
+                        </div>
+
+                        <br />
+                        <div class="form-floating">
+                        <input type="file" name="image" accept=".png" required>
+                        </div>
+
+                        <br />
+                        <button class="btn btn-primary" type="submit" >Post</button>
+                    </form>
+                    <br>
+                    <br>
+                    <a href="{{ url_for('index') }}">Back to Home</a>
+                    <a href="{{ url_for('logout') }}">Logout</a>
+                  </div>
+                </div>
+            </div>
+         </div>
+    </main>   
+     <!-- Footer-->
+     <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Via Blog <span id="currentYear"></span>. created by <a href="#">Nathaniel Ademola</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="static/js/date.js"></script>             
+</body>
+
+</html>

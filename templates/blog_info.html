@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='assets/favic3.png') }}" />
+    <title>Via Blog - Discover And Learn.</title>
+    <style>
+        .container {
+            max-width: 100%;
+            padding: 20px;
+        }
+
+        .container-z p {
+            width: 100%;
+            
+        }
+
+        .container-z h1 {
+            padding-top: 10px;
+            margin-bottom: -20px;
+        }
+
+        .tools1 {
+            flex: 1;
+        }
+
+        .tools2 {
+            flex: 1;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .content img {
+            max-width: 95%;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
+
+        .content h1 {
+            margin-bottom: 10px;
+            margin-top: 10px;
+        }
+
+        .content p {
+            margin: 0;
+        }
+
+        @media (max-width: 600px) {
+            .content {
+                flex-direction: column;
+                padding-bottom: 10px;
+            }
+
+            .content img {
+                margin-right: 0;
+                max-width: 100%;
+            }
+            .container-z p {
+                width: 100%;
+                padding-left: 0%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="content">
+            <div class="tools2">
+            <img src="{{ url_for('static', filename='image/' + blog.image) }}" alt="{{ blog.title }}">
+            </div>
+            <div class="tools2">
+                <h1>{{ blog.title }}</h1>
+                <p>{{ blog.subheading }}</p>
+                <p>{{ blog.blog_body }}</p>
+            </div>        
+        </div>
+        <div class="container-z">
+        <h1>{{ blog.title2 }}</h1>
+        <p>{{ blog.body2 }}</p>
+        </div>
+    </div>
+      <!-- Footer-->
+      <footer class="border-top">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                {% if user.is_authenticated %}
+                <!-- Add this button to your blog_info.html template -->
+                <form action="{{ url_for('delete_blog', blog_id=blog.id) }}" method="post">
+                    <button type="submit" class="btn btn-danger">Delete Blog</button>
+                </form>
+                {% endif %}
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="small text-center text-muted fst-italic">Copyright &copy; Via Blog <span id="currentYear"></span>. created by <a href="#">Nathaniel Ademola</a></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src={{ url_for('static', filename='js/date.js') }}></script>   
+</body>
+</html>
